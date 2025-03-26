@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 import java.util.Set;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 @Service
@@ -49,6 +50,12 @@ public class KafkaProducer {
     public void sendMessage(AuthRequest message) {
         String topic = "authorization-topic";
         createTopicIfNotExists(topic, 3, (short) 1);
-        kafkaTemplate.send(topic, message);
+        CompletableFuture<Void> future = kafkaTemplate.send(topic, message)
+                .thenAccept(result ->
+                        System.out.println("Message sent: " + message + " to topic: " + topic)
+                ).exceptionally(ex -> {
+                    System.err.println("Failed to send message: " + ex.getMessage());
+                    return null;
+                });
     }
 }
