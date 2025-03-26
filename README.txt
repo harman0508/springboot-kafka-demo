@@ -16,10 +16,10 @@ Ensure you have installed:
 Navigate to your Kafka installation directory and start the services:
 ```
 # Start Zookeeper
-bin/zookeeper-server-start.sh config/zookeeper.properties
+.\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
 
 # Start Kafka
-bin/kafka-server-start.sh config/server.properties
+.\bin\windows\kafka-server-start.bat .\config\server.properties
 ```
 
 ### This step is Optional: Step 2: Create Kafka Topic (Optional)
