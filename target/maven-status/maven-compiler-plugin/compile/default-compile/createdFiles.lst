@@ -1,0 +1,9 @@
+com\example\kafka\consumer\KafkaConsumer.class
+com\example\kafka\model\AuthRequest$DriverIdentifier.class
+com\example\kafka\model\AuthResponse.class
+com\example\kafka\service\KafkaService.class
+com\example\kafka\model\AuthRequest.class
+com\example\kafka\controller\KafkaController.class
+com\example\kafka\producer\KafkaProducer.class
+com\example\kafka\KafkaApplication.class
+com\example\kafka\config\KafkaConfig.class
