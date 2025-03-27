@@ -9,13 +9,13 @@ import org.springframework.stereotype.Service;
 
 import java.util.concurrent.CompletableFuture;
 
-@Async
 @Service
 public class KafkaConsumer {
 
     private final ObjectMapper objectMapper = new ObjectMapper();
     private CompletableFuture<JsonNode> futureMessage = new CompletableFuture<>();
-
+    
+    @Async
     @KafkaListener(topics = "authorization-topic", groupId = "my-group")
     public void consume(String message) {
         System.out.println("Received Message: " + message);
